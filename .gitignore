@@ -1,2 +1,2 @@
 .DS_Store
-git rm --cached .gitignore
+.gitignore
