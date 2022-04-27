@@ -12,7 +12,7 @@
         if(!$post)
         {
             $result = [
-                "status" => false,
+                "status" => "false",
                 "message" => "Post not found"
             ];
 
@@ -61,7 +61,7 @@
         if($find){
             http_response_code(200);
             $result = [
-                "status" => true,
+                "status" => "true",
                 "message" => "You successfully logged"
             ];
             echo json_encode($result);
@@ -69,7 +69,7 @@
         {
             http_response_code(401);
             $result = [
-                "status" => false,
+                "status" => "false",
                 "message" => "Login or password is not correct"
             ];
             echo json_encode($result);
