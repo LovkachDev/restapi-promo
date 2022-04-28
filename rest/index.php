@@ -34,5 +34,9 @@
         {
             auth($_POST);
         }
+        elseif($request === "delete")
+        {
+            deletePost($_POST);
+        }
     } 
 ?>

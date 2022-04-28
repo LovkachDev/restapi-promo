@@ -27,27 +27,40 @@
     function addPost($data)
     {
         $title = $data['title'];
-        $tag = $data['tag'];
         $content = $data['content'];
         $promo = $data['promo'];
 
+        if(!empty($title) && !empty($content) && !empty($promo))
+            $add = R::dispense("post");
+            $add->title = $title;
+            $add->content = $content;
+            $add->promo = $promo;
+            R::store($add);
 
-        $add = R::dispense("post");
-        $add->title = $title;
-        $add->tag = $tag;
-        $add->content = $content;
-        $add->promo = $promo;
-        R::store($add);
+            http_response_code(201);
+
+            $result = [
+                "status" => "true",
+                "message" => "Post successfully added"
+            ];
+            print_r($result);
+    }
+    function deletePost($data)
+    {
+        $id = $data['id'];
+
+
+        $remove = R::load("post" , $id);
+        R::trash($remove);
 
         http_response_code(201);
 
         $result = [
             "status" => "true",
-            "message" => "Post successfully added"
+            "message" => "Post successfully deleted"
         ];
         print_r($result);
     }
-
 
 
 

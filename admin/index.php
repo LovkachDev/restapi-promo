@@ -1,3 +1,8 @@
+<?php
+
+    require "../session/isAuth.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,10 +50,11 @@
                             
                                 if($response->status == "true")
                                 {
-                                    echo "success";
+                                    session_start();
+                                    $_SESSION['auth'] = "true";
                                 }else
                                 {
-                                    echo "denied";
+                                    echo "<div class = 'error__message'>Invalid login or password</div>";
                                 }
                             }
                         ?>
